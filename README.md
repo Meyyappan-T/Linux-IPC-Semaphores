@@ -18,18 +18,13 @@ Write the C Program using Linux Process API - Sempahores
 
 Execute the C Program for the desired output. 
 
-# PROGRAM:
-# Developed by
-
-Name : Meyyappan T
-Reg No : 212223240086
 
 ## Write a C program that implements a producer-consumer system with two processes using Semaphores.
-
 ```
 /*
- * sem.c  - demonstrates a basic producer-consumer
- *                            implementation.              */
+ * sem-producer-consumer.c  - demonstrates a basic producer-consumer
+ *                            implementation.
+ */
 #include <stdio.h>	 /* standard I/O routines.              */
 #include <stdlib.h>      /* rand() and srand() functions        */
 #include <unistd.h>	 /* fork(), etc.                        */
@@ -42,7 +37,6 @@ Reg No : 212223240086
 /* union semun is defined by including <sys/sem.h> */
 #else
 /* according to X/OPEN we have to define it ourselves */
-
 union semun {
         int val;                    /* value for SETVAL */
         struct semid_ds *buf;       /* buffer for IPC_STAT, IPC_SET */
@@ -76,7 +70,7 @@ int main(int argc, char* argv[])
 	case -1:	/* fork() failed */
 	    perror("fork");
 	    exit(1);
-case 0:		/* child process here */
+	case 0:		/* child process here */
 	    for (i=0; i<NUM_LOOPS; i++) {
 		/* block on the semaphore, unless it's value is non-negative. */
 		sem_op.sem_num = 0;
@@ -93,7 +87,7 @@ case 0:		/* child process here */
 		fflush(stdout);
 		/* increase the value of the semaphore by 1. */
 		sem_op.sem_num = 0;
-sem_op.sem_op = 1;
+		sem_op.sem_op = 1;
 		sem_op.sem_flg = 0;
 		semop(sem_set_id, &sem_op, 1);
 		/* pause execution for a little bit, to allow the */
@@ -111,18 +105,14 @@ if(NUM_LOOPS>=10)    {
     }
     return 0;}
 ```
-
-
 ## OUTPUT
 $ ./sem.o 
 
-![image](https://github.com/Gokhulraj2005/Linux-IPC-Semaphores/assets/138849253/73e1cd7a-7cf6-45f4-a7fe-56b1d42f0ba4)
-
+![ex5op1](ex5op1.png)
 
 $ ipcs
 
-![image](https://github.com/Gokhulraj2005/Linux-IPC-Semaphores/assets/138849253/3a71b60a-b2a4-46e7-b18b-dc79c97f1fb6)
-
+![ex5op2](ex5op2.png)
 
 # RESULT:
 The program is executed successfully.
