@@ -107,12 +107,13 @@ if(NUM_LOOPS>=10)    {
 ```
 ## OUTPUT
 $ ./sem.o 
+![image](https://github.com/Meyyappan-T/Linux-IPC-Semaphores/assets/128804366/7e2ed5b9-acdd-4033-8518-14a503fb3620)
 
-![ex5op1](ex5op1.png)
 
 $ ipcs
 
-![ex5op2](ex5op2.png)
+![image](https://github.com/Meyyappan-T/Linux-IPC-Semaphores/assets/128804366/9e364e32-208d-4150-a3d8-3deb8c14e13f)
+
 
 # RESULT:
 The program is executed successfully.
